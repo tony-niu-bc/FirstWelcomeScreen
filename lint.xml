@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription">
+        <ignore path="res/layout/guide_screen.xml" />
+        <ignore path="res/layout/splash_screen.xml" />
+    </issue>
+    <issue id="InflateParams">
+        <ignore path="src/cn/eoe/leigo/splash/GuideActivity.java" />
+        <ignore path="src/com/wzhnsc/firstwelcomescreen/GuideScreen.java" />
+    </issue>
+</lint>
