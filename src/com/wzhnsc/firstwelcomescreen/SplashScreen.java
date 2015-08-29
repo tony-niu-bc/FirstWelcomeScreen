@@ -10,44 +10,44 @@ import android.preference.PreferenceManager;
 
 public class SplashScreen extends Activity
 {
-	private static final int GO_HOME_ACTIVITY  = 0x01;
-	private static final int GO_GUIDE_ACTIVITY = 0x02;
+    private static final int GO_HOME_ACTIVITY  = 0x01;
+    private static final int GO_GUIDE_ACTIVITY = 0x02;
 
-	// 启动画面显示时长(单位毫秒)
-	private static final long SPLASH_SCREEN_DELAY = 2000;
+    // 启动画面显示时长(单位毫秒)
+    private static final long SPLASH_SCREEN_DELAY = 2000;
 
-	private Handler mHandler = new Handler()
-	{
-		@Override
-		public void handleMessage(Message msg)
-		{
-		    Intent intent = null;
+    private Handler mHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            Intent intent = null;
 
-			switch (msg.what)
-			{
-			case GO_HOME_ACTIVITY:
-//		        intent = new Intent(SplashScreen.this, MainActivity.class);
-			    intent = new Intent(SplashScreen.this, GuideScreen.class);
-				break;
+            switch (msg.what)
+            {
+            case GO_HOME_ACTIVITY:
+//                intent = new Intent(SplashScreen.this, MainActivity.class);
+                intent = new Intent(SplashScreen.this, GuideScreen.class);
+                break;
 
-			case GO_GUIDE_ACTIVITY:
-			    intent = new Intent(SplashScreen.this, GuideScreen.class);
-				break;
-			}
+            case GO_GUIDE_ACTIVITY:
+                intent = new Intent(SplashScreen.this, GuideScreen.class);
+                break;
+            }
 
             startActivity(intent);
             finish();
 
-			super.handleMessage(msg);
-		}
-	};
+            super.handleMessage(msg);
+        }
+    };
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.splash_screen);
+        setContentView(R.layout.splash_screen);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -61,5 +61,5 @@ public class SplashScreen extends Activity
         {
             mHandler.sendEmptyMessageDelayed(GO_GUIDE_ACTIVITY, SPLASH_SCREEN_DELAY);
         }
-	}
+    }
 }
